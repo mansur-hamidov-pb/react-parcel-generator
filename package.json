@@ -1,0 +1,22 @@
+{
+	"name": "generator-parcel-react-app",
+	"version": "0.0.1",
+	"description": "Custom react application generator",
+	"main": "generators/index.js",
+	"scripts": {
+		"test": "echo \"Tests are successful\""
+	},
+	"files": [
+		"generators"
+	],
+	"keywords": [
+		"yeoman-generator"
+	],
+	"author": "Mansur Hamidov",
+	"license": "ISC",
+	"dependencies": {
+		"yeoman-generator": "^2.0.1",
+		"chalk": "^2.1.0",
+		"yosay": "^2.0.1"
+	}
+}
