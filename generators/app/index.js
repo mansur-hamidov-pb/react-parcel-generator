@@ -22,41 +22,28 @@ module.exports = class extends Generator {
     }
 
     writing() {
-        const pkgJson = {
-            "name": this.props.appName,
-            "description": this.props.appDescription,
-            "version": "1.0.0",
-            "license": "MIT",
-            "scripts": {
-                "start": "parcel public/index.html --open",
-                "build": "rm -R -f dist .cache && parcel build public/index.html --no-source-maps"
-            }
-        }
-
         this.fs.copyTpl(
             this.templatePath("**/*"),
             this.destinationPath(this.props.appName),
             this.props
         );
-
-        this.fs.extendJSON(this.destinationPath('package.json'), pkgJson);
     }
 
     install () {
+        process.chdir(process.cwd() + '/' + this.props.appName);
+
         this.npmInstall(
             [
                 'react',
                 'react-dom'
-            ],
-            { cwd: this.props.appName }
+            ]
         );
         this.npmInstall(
             [
                 'typescript',
                 '@types/react',
                 '@types/react-dom'
-            ], 
-            { cwd: this.props.appName, "save-dev": true }
+            ]
         )
     }
 }
