@@ -41,6 +41,7 @@ module.exports = class extends Generator {
 		];
 
 		const props = await this.prompt(prompts);
+		props.appName = props.appName.replace(/ /g, '-')
 		this.props = props;
 	}
 
